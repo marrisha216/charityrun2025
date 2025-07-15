@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charity Run 2025</title>
+  <style>
+	html {
+    scroll-behavior: smooth;
+	}
+	
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('background.png') no-repeat center center fixed;
+	  background-size: cover;
+	  color: #333;
+    }
+
+    header {
+	  position: sticky;
+	  top: 0;
+	  background-color: #e2788d;
+	  color: white;
+	  padding: 20px;
+	  text-align: center;
+	  z-index: 1000;
+	}
+
+	nav {
+	  position: sticky;
+	  top: 80px; 
+	  z-index: 999;
+	  display: flex;
+	  justify-content: center;
+	  background-color: #f8b6c6;
+	  border-bottom: 2px solid #ff69b4;
+	}
+
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      color: #880e4f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav button.active {
+      border-bottom: 4px solid #d81b60;
+    }
+
+    section {
+      display: none;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+	
+	.section-container {
+	  background-color: rgba(255, 255, 255, 0.85); /* putih lutsinar */
+	  padding: 30px;
+	  border-radius: 10px;
+	  margin: 30px auto;
+	  max-width: 900px;
+	  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+	}
+	
+    section.active {
+      display: block;
+    }
+
+    .ticket-buttons button {
+      background-color: #ff80ab;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin: 10px 10px 20px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    form {
+      margin-top: 20px;
+      background: #fff0f5;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8b6c6;
+      color: #880e4f;
+      font-size: 14px;
+    }
+
+    .payment-page {
+      display: none;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .payment-page.active {
+      display: block;
+    }
+
+    .payment-box {
+      background-color: #ffeef4;
+      border: 2px dashed #ff80ab;
+      padding: 40px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .payment-box h2 {
+      color: #d81b60;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Charity Run 2025</h1>
+    <p>Run with Purpose, Move with Heart</p>
+  </header>
+
+  <nav>
+    <button class="tab-button active" onclick="showTab('home')">Home Page</button>
+    <button class="tab-button" onclick="showTab('service')">Service</button>
+    <button class="tab-button" onclick="showTab('contact')">Contact Us</button>
+  </nav>
+	
+  <!-- HOME -->
+  <section id="home" class="active">
+	<div class="section-container">
+		<h2 style="font-size: 32px; color: #d81b60; margin-top: 20px; text-align: center;">Welcome to Charity Run 2025</h2>
+		<p style="font-size: 18px; color: #555; margin-bottom: 20px; text-align: center;">
+			Miles of Hope, Fueled by Heart. Join us in making every step count!
+		</p>
+
+		<div style="text-align:center;">
+		  <img src="banner.jpg" alt="People Running" style="max-width:100%; border-radius:10px;" />
+		</div>
+		
+		<div style="text-align:center; margin-top: 30px;">
+		  <a href="#service" onclick="showTab('service'); scrollToService();" 
+			 style="background-color:#ff4081; color:white; padding:10px 30px; border-radius:5px; font-weight:bold; text-decoration:none; font-size:16px;">
+			Book Now
+		  </a>
+		</div>
+		
+		<div style="margin-top: 40px;">
+		  <h3 style="color:#880e4f;">Why Join Us?</h3>
+		  <ul style="line-height:1.8;">
+			<li>🏃‍♂️ Healthy activity for individuals and families</li>
+			<li>🎗️ Support local charities with every step</li>
+			<li>👕 Free T-shirts and goodies for all runners</li>
+			<li>🏅 Exclusive medals for finishers</li>
+		  </ul>
+		</div>
+		
+		<h3 style="text-align:center; color:#d81b60;">📌 Event Flyer & Brochure</h3>
+
+		<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 20px;">
+		  
+		  <!-- Flyer -->
+		  <div style="flex: 1 1 300px; text-align: center;">
+			<img src="flyer.jpg" alt="Charity Run Flyer" style="width:100%; max-width:350px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+			<p style="margin-top:10px;">Flyer</p>
+		  </div>
+
+		  <!-- Brochure -->
+		  <div style="flex: 1 1 300px; text-align: center;">
+			<img src="brochure.jpg" alt="Charity Run Brochure" style="width:100%; max-width:350px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+			<p style="margin-top:10px;">Brochure</p>
+		  </div>
+
+		</div>
+		
+	</div>
+	
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service">
+	<div class="section-container">
+		<h2>Event Details</h2>
+		<p><strong>📍 Location:</strong> Dataran Wawasan Persiaran Perdana, Presint 2, 62000 Putrajaya, Wilayah Persekutuan Putrajaya, Malaysia</p>
+		<img src="location.jpg" alt="Event Location Map" style="max-width:100%; border-radius:8px; margin: 15px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1);" />
+		<p><strong>🕒 Date:</strong> 3 August 2025, 7:00 AM</p>
+			
+		<h3>🎫 Categories & Fees</h3>
+		  <table style="width:100%; border-collapse: collapse; text-align: center;">
+			<thead style="background-color:#f8b6c6;">
+			  <tr>
+				<th style="padding:10px; border: 1px solid #d81b60;">Category</th>
+				<th style="padding:10px; border: 1px solid #d81b60;">Super Early Bird<br><small>(1st 1000 participants)</small></th>
+				<th style="padding:10px; border: 1px solid #d81b60;">Early Bird<br><small>(2nd 1000 participants)</small></th>
+				<th style="padding:10px; border: 1px solid #d81b60;">Normal Fee<br><small>(Last 500 participants)</small></th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td style="padding:10px; border: 1px solid #d81b60;">5KM Kids (7–12 yrs)</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 35.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 40.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 45.00</td>
+			  </tr>
+			  <tr>
+				<td style="padding:10px; border: 1px solid #d81b60;">5KM Adult (13+)</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 45.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 55.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 65.00</td>
+			  </tr>
+			  <tr>
+				<td style="padding:10px; border: 1px solid #d81b60;">10KM (16+)</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 55.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 65.00</td>
+				<td style="padding:10px; border: 1px solid #d81b60;">RM 75.00</td>
+			  </tr>
+			</tbody>
+		  </table>
+
+	  <p style="margin-top: 20px;"><strong>📅 Registration Closing Date:</strong><br>
+	  10 July 2025 or upon reaching the <strong>maximum of 2,500 participants</strong>, whichever is earlier.</p>
+
+		<h3>🎫 Select Your Ticket</h3>
+		<div class="ticket-buttons">
+		  <button onclick="showBookingForm('Super Early Bird', '35.00')">Super Early Bird (RM35)</button>
+		  <button onclick="showBookingForm('Early Bird', '55.00')">Early Bird (RM55)</button>
+		  <button onclick="showBookingForm('Normal Fee', '65.00')">Normal Fee (RM65)</button>
+		</div>
+
+		<form id="bookingForm" style="display:none;" onsubmit="submitForm(event)">
+		  <label>Full Name</label>
+		  <input type="text" required>
+
+		  <label>Email</label>
+		  <input type="email" required>
+
+		  <label>Phone Number</label>
+		  <input type="tel" required>
+
+		  <label>Category</label>
+		  <select required>
+			<option value="">-- Select Category --</option>
+			<option>5KM Kids (7–12 yrs)</option>
+			<option>5KM Adult (13+)</option>
+			<option>10KM (16+)</option>
+		  </select>
+
+		  <label>Ticket Type</label>
+		  <input type="text" id="ticketType" readonly>
+
+		  <label>Price (RM)</label>
+		  <input type="text" id="ticketPrice" readonly>
+
+		  <button type="submit">Confirm Booking</button>
+		</form>
+	</div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+	<div class="section-container">
+		<h2>Contact Us</h2>
+		<p><strong>Email:</strong> support@charityrun2025.org</p>
+		<p><strong>Phone:</strong> +6012-3456789</p>
+		<p><strong>Promote our app:</strong> Available soon on Google Play & App Store!</p>
+		<div style="text-align:center; margin-top: 20px;">
+		  <img src="apps.png" alt="Charity Run App Poster" style="max-width:100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+		</div>
+	</div>
+ </section>
+
+  <!-- PAYMENT -->
+  <div id="paymentPage" class="payment-page">
+    <div class="payment-box">
+      <h2>🎉 Payment Successful!</h2>
+      <p>Thank you for booking with Charity Run 2025.</p>
+      <p>You will be redirected to the homepage shortly...</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Charity Run Event. All rights reserved.
+  </footer>
+
+  <script>
+  
+	function scrollToService() {
+	  setTimeout(() => {
+		window.scrollTo({ top: document.getElementById("service").offsetTop - 60, behavior: 'smooth' });
+	  }, 100);
+	}
+
+    function showTab(tabId) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function showBookingForm(type, price) {
+      document.getElementById("bookingForm").style.display = "block";
+      document.getElementById("ticketType").value = type;
+      document.getElementById("ticketPrice").value = price;
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      // Hide service section, show payment
+      document.getElementById("service").classList.remove("active");
+      document.getElementById("paymentPage").classList.add("active");
+
+      // Redirect to home after 4 seconds
+      setTimeout(() => {
+        document.getElementById("paymentPage").classList.remove("active");
+        document.getElementById("home").classList.add("active");
+
+        // Reset nav tab
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-button')[0].classList.add('active');
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
